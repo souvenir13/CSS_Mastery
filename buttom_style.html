@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>链接样式</title>
+    <style>
+        /* Color Variables
+        @colordef #DCDCDC;Gainsboro 浅灰
+        @colordef #9ACD32;YellowGreen 黄绿
+        @colordef #FFFF00;Yellow 黄
+        @colordef #FFC0CB;pink 粉
+        @colordef #009900;绿
+        @colordef #009999;青
+        @colordef #0099CC;宝蓝
+        */
+        a {
+            display:block;
+            width: 7em;
+            height:2em;
+            line-height: 2em;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #009900;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                border-radius:6px;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(yellow),to(green));
+            /*渐变：渐变类型、渐变方向、初始颜色、结束颜色，中间过渡点*/
+            color:#ffffff;
+                -moz-box-shadow: 5px 5px 5px #ccc;
+                -webkit-box-shadow: 5px 5px 5px #ccc;
+                box-shadow: 5px 5px 5px #ccc;
+            -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent),color-stop(0.52,transparent),to(white)); /*safari专有性能*/
+        }
+        a.tooltip {
+            position:relative;
+        }
+        a.tooltip span{
+            width: 7em;
+            display:none;
+        }
+        a.tooltip:hover span{
+            display:block;
+            position:absolute;
+            color:#000;
+            top:2.2em;
+            left: 2em;
+            padding:0.2em 0.6em;
+            border: 1px solid #000;
+            -moz-box-shadow: 2px 2px 2px #ccc;
+            -webkit-box-shadow: 2px 2px 2px #ccc;
+            box-shadow: 2px 2px 2px #ccc;
+        }
+    </style>
+</head>
+<body>
+<a href="#" class="tooltip">订阅一下呗<span>你猜我猜不猜</span></a>
+</body>
+</html>

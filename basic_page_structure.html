@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>固定宽度的三列布局以及CSS3实现</title>
+    <style>
+        /* Color Variables
+        @colordef #DCDCDC;Gainsboro 浅灰
+        @colordef #9ACD32;YellowGreen 黄绿
+        @colordef #FFFF00;Yellow 黄
+        @colordef #FFC0CB;pink 粉
+        @colordef #009900;绿
+        @colordef #009999;青
+        @colordef #0099CC;宝蓝
+        */
+        * {
+            margin:0;
+            padding:0;
+        }
+        .notice {
+            color:red;
+            text-decoration: underline;
+        }
+        .container {
+            width:920px;
+            border:solid 1px #0099CC;
+            margin:0 auto;
+            background-color: Gainsboro;
+        }
+        .container .header,.footer{
+            background-color: grey;
+            padding: 10px 10px;
+        }
+        .container .primary {
+            width:670px;/*width increased and padding removed*/
+            border:solid 2px pink;
+            float:right;
+        }
+        .container .secondary {
+            width:230px;
+            border:solid 2px pink;
+            float:left;
+        }
+        .container h3{
+            padding:20px 0;
+        }
+        .content{
+            overflow: hidden;/*清楚浮动并设置溢出样式*/
+        }
+        /*给content部分添加第三列布局*/
+        .content .primary .primary {
+            width: 400px;
+            float:left;
+        }
+        .content .primary .secondary {
+            width: 230px;
+            float:right;
+            padding-right: 20px;/*padding applied here instead*/
+        }
+        /*CSS3实现三列*/
+        .col {
+            -moz-column-count: 3;
+            -moz-column-width: 14em;
+            -moz-column-gap:2em;
+            -moz-column-rule:2px solid #ccc
+            -webkit-column-count: 3;
+            -webkit-column-width: 14em;
+            -webkit-column-gap:2em;
+            -webkit-column-rule:2px solid #ccc
+            column-count: 3;
+            column-width: 14em;
+            column-gap:2em;
+            column-rule:2px solid #ccc
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        width=920px
+        <!-- your header content goes here-->
+        <h2>固定宽度的三列布局</h2>
+    </div>
+    <div class="content">
+        <!-- your page content goes here-->
+        <div class="primary">
+            <p>
+                .primary
+            width=670px </p>
+            <div class="primary">
+                .primary .primary
+                width=400px
+                <!-- your primary primary content goes here-->
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+            </div>
+            <div class="secondary">
+                .primary .secondary
+                width=230px
+                <!-- your primary secondary content goes here-->
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    将两列布局变为三列时，可以通过在主div(primary)中嵌套两个相同的类(一个primary一个secondary)来实现。需要注意的是：<span class="notice">需要从一般样式中(primary)删除内边距，将其应用于更特定的样式(.primary.secondary)。</span>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+            </div>
+
+        </div>
+        <div class="secondary">
+            .secondary
+            <ul>
+                <li>Home</li>
+                <li>News</li>
+                <li>Products</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+    <h1>CSS3实现三列</h1>
+    <div class="col">
+        <p>In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.</p>
+    </div>
+    <div class="footer">
+        <!-- your footer content goes here-->
+        your footer content goes here
+    </div>
+</div>
+</body>
+</html>

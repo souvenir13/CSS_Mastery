@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>流式布局和弹性布局</title>
+    <style>
+        body {
+            font-size: 62.5%;/*浏览器默认字号为16px，62.5%正好为10px，即1em=10px*/
+            /*text-align: center;*/
+        }
+        .container .header,.footer{
+            background-color: grey;
+            padding: 1em 1em;
+        }
+        .notice {
+            color:red;
+            text-decoration: underline;
+        }
+        .container {
+            width:92em;/*相当于920px*/
+            max-width: 95%;
+            border:solid 1px #0099CC;
+            margin:0 auto;
+            background-color: Gainsboro;
+        }
+        .container .primary {
+            width:72.82%;/*相对于container容器宽度设置*/
+            border:solid 2px pink;
+            float:right;
+        }
+        .container .secondary {
+            width:25%;
+            border:solid 2px pink;
+            float:left;
+        }
+        .content{
+            overflow: hidden;/*清楚浮动并设置溢出样式*/
+        }
+        .content .primary .primary {
+            width: 59.7%;
+            float:left;
+        }
+        .content .primary .secondary {
+            width: 34.33%;
+            float:right;
+            padding-right: 2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        width=920px
+        <!-- your header content goes here-->
+        <h2>弹性布局相对于字号单位em;流式布局相对于容器大小单位%</h2>
+        <div class="notice">1em=父容器指定的字号大小，这里的1em=10px</div>
+    </div>
+    <div class="content">
+        <!-- your page content goes here-->
+        <div class="primary">
+            <p>
+                .primary
+                width=670px </p>
+            <div class="primary">
+                .primary .primary
+                width=400px
+                <!-- your primary primary content goes here-->
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    <div class="notice">页面的布局会根据字号的增加而漂亮地增加。</div>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+            </div>
+            <div class="secondary">
+                .primary .secondary
+                width=230px
+                <!-- your primary secondary content goes here-->
+                <h3>If Trump meets Kim Jong Un, who will be his Kissinger?</h3>
+                <p>
+                    In 2008, I was one of a few dozen foreign journalists who witnessed the destruction of the Yongbyon nuclear cooling tower in North Korea. Yongbyon was where North Korea had been processing plutonium, and leader Kim Jong Il wanted to show the world that he was serious about dismantling the reactor and meeting the U.S. and the other members of the so-called six-party talks halfway. At the time, it was viewed as a symbolic milestone in the history of nuclear negotiations between North Korea and other world powers, but the impression was fleeting; less than a year later, talks collapsed and the Kim dynasty accelerated its pursuit of a nuclear bomb. Ten years later, it has amassed a small arsenal of nuclear bombs and, increasingly, the ability to deliver them with long-range missiles.
+                </p>
+            </div>
+
+        </div>
+        <div class="secondary">
+            .secondary
+            <ul>
+                <li>Home</li>
+                <li>News</li>
+                <li>Products</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <!-- your footer content goes here-->
+        your footer content goes here
+    </div>
+</div>
+</body>
+</html>

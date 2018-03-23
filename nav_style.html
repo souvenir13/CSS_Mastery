@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>导航样式</title>
+    <style>
+        /* Color Variables
+        @colordef #DCDCDC;Gainsboro 浅灰
+        @colordef #9ACD32;YellowGreen 黄绿
+        @colordef #FFFF00;Yellow 黄
+        @colordef #FFC0CB;pink 粉
+        @colordef #009900;绿
+        @colordef #009999;青
+        @colordef #0099CC;宝蓝
+        */
+        ul.nav-vertical {
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            width: 9em;
+            background-color: palevioletred;
+        }
+        ul.nav-vertical li {
+            display:inline;
+        }
+        ul.nav-vertical a{
+            display: block;/*important!*/
+            height:2em;
+            padding: 0.6em 1em 0.2em 1.8em;
+            color: #ffffff;
+            text-decoration: none;
+            border-top:1px solid #e4ffd3;
+            border-bottom:1px solid rosybrown;
+            background:url(./imgs/arrow.gif) no-repeat 5% 50%;
+        }
+        ul.nav-vertical a:hover,
+        ul.nav-vertical a:focus {
+            color: palevioletred;
+            background-color: pink;
+        }
+        #home .nav-vertical .home a,
+        #about .nav-vertical .about a,
+        #services .nav-vertical .services a,
+        #work .nav-vertical .work a,
+        #news .nav-vertical .news a,
+        #contact .nav-vertical .contact a{
+            background-color: pink;
+            color:#000000;
+            cursor: default;
+        }
+        /*有序列表之水平导航条*/
+        ol.pagination {
+            margin:0;
+            padding:0;
+            list-style-type: none;
+        }
+        ol.pagination li {
+            float:left;
+            margin-right:0.8em;
+        }
+        ol.pagination a
+        {
+            display:block;
+            color:purple;
+            padding: 0.2em 0.5em;
+            border:1px solid pink;
+            text-decoration:none;
+        }
+        ol.pagination a:hover,
+        ol.pagination a:focus,
+        ol.pagination li.selected{
+            background-color: palevioletred;
+            color:#ffffff;
+        }
+        ol.pagination a[rel="prev"],
+        ol.pagination a[rel="next"]{
+            border:none;
+        }
+        /*在列表开头和末尾添加箭头*/
+        ol.pagination a[rel="prev"]:before{
+            content:'\00AB';
+            padding-right: 0.5em;
+        }
+        ol.pagination a[rel="next"]:after{
+            content:'\00BB';
+            padding-left: 0.5em;
+        }
+
+        /*水平导航*/
+        ul.nav-horizontal {
+            margin:0;
+            padding:0;
+            list-style-type: none;
+            display: block;
+            width: 72em;
+            overflow: hidden;/*清楚li中的浮动，防止nav背景元素被隐藏*/
+            background:#faa819 url(imgs/mainNavBg.gif) repeat-x;
+            font:76%/1.8 "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+        }
+        ul.nav-horizontal li{
+            float:left;
+        }
+        ul.nav-horizontal a{
+            display:block;
+            color:#fff;
+            text-shadow: 2px;
+            padding:0 4em;
+            background: url(imgs/divider.gif) no-repeat left top;
+            text-decoration: none;
+            line-height: 2.1em;
+        }
+        ul.nav-horizontal a:hover,
+        ul.nav-horizontal a:focus{
+            text-decoration: underline;
+            color:black;
+        }
+        ul.nav-horizontal li:first-child a{
+            background:none;
+        }
+
+        /*滑动窗技术*/
+        ul.nav-slide {
+            margin:0;
+            padding:0;
+            width:72em;
+            list-style-type: none;
+            overflow:hidden;
+        }
+        ul.nav-slide li{
+            float:left;
+            background: url(imgs/tab-right.gif) no-repeat right top;
+        }
+        ul.nav-slide a{
+            display:block;
+            padding:0 3em;
+            color:#ffffff;
+            text-decoration: none;
+            font:76%/1.8 "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+            background: url(imgs/tab-left.gif) no-repeat left top;
+        }
+        ul.nav-slide a:hover,
+        ul.nav-slide a:focus{
+            color:black;
+        }
+
+        /*下滑导航*/
+        ul.nav-dropdown {
+            width: 72em;
+            font: 100% "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+            text-align: center;
+            display:block;
+
+        }
+        ul.nav-dropdown, ul.nav-dropdown ul{
+            margin:0;
+            padding:0;
+            float:left;
+            list-style-type: none;
+            border:1px solid #009900;
+            background-color: YellowGreen;
+        }
+        ul.nav-dropdown li{
+            width:12em;
+            float:left;
+            /*border:1px solid Gainsboro;*/
+        }
+        ul.nav-dropdown li ul{
+            width:12em;
+            position:absolute;
+            display:none;
+        }
+        ul.nav-dropdown li:hover ul{
+            display:block;
+        }
+        ul.nav-dropdown a{
+            display:block;
+            padding:0.7em 0;
+            color:#ffffff;
+            text-decoration: none;
+            border-left:1px solid #C2FFF3;
+            border-right:1px solid #0b5309;
+        }
+        ul.nav-dropdown li ul a{
+            border-top:1px solid #C2FFF3;
+            border-bottom:1px solid #0b5309;
+            border-left: none;
+            border-right:none;
+        }
+        ul.nav-dropdown ul li:last-child a{
+            border-bottom: none;
+        }
+        ul.nav-dropdown li:last-child a{
+            border-right:none;
+        }
+        ul.nav-dropdown li:first-child a{
+            border-left:none;
+        }
+        ul.nav-dropdown li:hover,
+        ul.nav-dropdown li:focus{
+            background-color:#0b5309;
+        }
+    </style>
+</head>
+<body id="home">
+    <h3>垂直导航</h3>
+    <ul class="nav-vertical">
+        <li class="home" ><a href="#">Home</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="services"><a href="#">Our Services</a></li>
+        <li class="work"><a href="#">Our Work</a></li>
+        <li class="news"><a href="#">News</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+    </ul>
+    为了突出显示当前页面，且不需要动态地在菜单中添加类，可以通过寻找ID和类名的组合的方式。
+    <h3>水平导航条</h3>
+    <ol class="pagination">
+        <li><a href="#" rel="prev">Prev</a></li>
+        <li><a href="#?page=1">1</a></li>
+        <li class="selected"><a href="#?page=2">2</a></li>
+        <li><a href="#?page=3">3</a></li>
+        <li><a href="#?page=4">4</a></li>
+        <li><a href="#?page=5">5</a></li>
+        <li><a href="#" rel="next">Next</a></li>
+    </ol>
+    <br>
+    <h3>下滑导航</h3>
+    <ul class="nav-dropdown">
+        <li class="home" ><a href="#">Home</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="services"><a href="#">Our Services</a>
+            <ul>
+                <li><a href="#">Design</a></li>
+                <li><a href="#">Development</a></li>
+                <li><a href="#">Consultancy</a></li>
+            </ul>
+        </li>
+        <li class="work"><a href="#">Our Work</a>
+            <ul>
+                <li><a href="#">Silverback</a></li>
+                <li><a href="#">Font Deck</a></li>
+            </ul>
+        </li>
+        <li class="news"><a href="#">News</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+    </ul>
+    <br>
+    <h3>水平导航</h3>
+    <ul class="nav-horizontal">
+        <li class="home" ><a href="#">Home</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="services"><a href="#">Our Services</a></li>
+        <li class="work"><a href="#">Our Work</a></li>
+        <li class="news"><a href="#">News</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+    </ul>
+    <br>
+    <h3>滑动窗技术建立可拉伸圆角框背景的导航</h3>
+    <ul class="nav-slide">
+        <li class="home" ><a href="#">Home</a></li>
+        <li class="about"><a href="#">About</a></li>
+        <li class="services"><a href="#">Our Services</a></li>
+        <li class="work"><a href="#">Our Work</a></li>
+        <li class="news"><a href="#">News</a></li>
+        <li class="contact"><a href="#">Contact</a></li>
+    </ul>
+
+</body>
+</html>

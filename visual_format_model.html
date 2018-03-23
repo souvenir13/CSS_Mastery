@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>清除浮动方法</title>
+    <style>
+        /* news */
+        .news {
+            background-color: khaki;
+            border: solid 1px gold;
+        }
+        img {
+            float: left;
+            width: 200px;
+        }
+        .news p {
+            float: right;
+            width: 400px;
+        }
+        .clear {
+            clear:both;
+        }
+        .notice {
+            color:red;
+            text-decoration: underline;
+        }
+        /* article */
+        .article p:last-child {
+            background-color: pink;
+            border: solid 2px palevioletred;
+            clear:left;
+        }
+        /* 使用CSS生成内容清楚浮动 */
+        .clear-news:after {
+            content: ".";
+            height: 0 ;
+            visibility: hidden;
+            display: block;
+            clear: both;
+        }
+        /* span 行内框的尺寸修改方法*/
+        #span-one {
+            border: solid 2px red;
+            padding:10px;
+            margin:10px;
+            background-color: yellow;
+            line-height: 50px;
+            width:100px;/*行内框不能用width显示地改变其尺寸*/
+        }
+        #span-two {
+            border: solid 1px red;
+            width:10px;
+        }
+    </style>
+</head>
+<body>
+<!--clear属性的作用-->
+<h2>clear属性的作用</h2>
+<div class="news">
+    <img src="imgs/Hebe.jpg" alt="little hebe">
+    <p>Clear属性作用:clear属性能够阻止所包含的行框围绕在浮动框的外边。<br>
+    这里的图片和文本都进行了浮动处理，不占据空间。为了在视觉上让父元素有包围浮动元素的效果，
+        我们在父元素内最后添加一个空div并且应用clear属性清理浮动。
+    </p>
+    <div class="clear"></div>
+</div>
+<br>
+<div class="article">
+    <img src="imgs/cat.jpg" alt="my cat">
+    <p>clear属性的值可以是left、right、both或none，它表示框的哪些边不应该挨着浮动框。</p>
+    <p>这边对本框应用了clear属性，属性值设置为left，阻止该行框的左边挨着浮动的图像。</p>
+</div>
+<!--清楚浮动的方法-->
+<div class="article">
+    <h2>清楚浮动的方法</h2>
+    <ul>
+        <li>1 对浮动元素进行清理，用clear</li>
+        <li>2 给不浮动的div容器添加浮动</li>
+        <li>3 对包含浮动元素的div容器用overflow,好处不需要添加额外的空元素</li>
+        <li>4 使用CSS生成的内容，动态添加</li>
+    </ul>
+</div>
+<div class="news clear-news">
+    <img src="imgs/Hebe.jpg" alt="little hebe">
+    <p>使用CSS生成的内容<br>
+    这种方法不直接向标记在中添加进行清理的元素，而是将它动态地添加到页面中，该方法需要指定进行清理的元素应该出现在哪里，
+    常常要添加一个类名。<br>
+    利用:after伪类和内容声明在指定位置后面添加一个新内容，并进行视觉上的隐藏（利用height置0，visibility置hidden），<b>
+            需要注意的是这里添加的新内容是一个块元素（display：block）。
+        </b>，并应用clear清除浮动。
+    </p>
+</div>
+<!--行内框尺寸修改方法-->
+<h2>修改行内框尺寸的方法：</h2>
+<span id="span-one">heiheihei</span><br>
+<span id="span-two">heiheihei</span>
+<ul>
+    <li>通过<span class="notice">行高、内外边距、水平边框</span>来修改行内框尺寸</li>
+    <li>不能显示地利用内容宽度和高度来改变</li>
+    <li><strong>块框可以显示地设置宽度、高度和垂直内外边距</strong></li>
+</ul>
+
+</body>
+</html>
